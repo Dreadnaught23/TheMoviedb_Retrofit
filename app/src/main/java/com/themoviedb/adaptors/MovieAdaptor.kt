@@ -15,7 +15,7 @@ class MovieAdaptor(
     private val movies : List<Movie>
 ): RecyclerView.Adapter<MovieAdaptor.MovieViewHolder>(){
     class MovieViewHolder(view: View):RecyclerView.ViewHolder(view) {
-        private val IMAGE_BASE = "https://image.tmdb.org/t/p/w500"
+        private val IMAGE_BASE = "https://image.tmdb.org/t/p/w500/"
         fun bindMovie(movie: Movie){
             itemView.movie_title.text = movie.title
             itemView.movie_overview.text = movie.overview
@@ -34,15 +34,15 @@ class MovieAdaptor(
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movies[position]
         holder.bindMovie(movies.get(position))
+
         holder.itemView.setOnClickListener{
-            moveToMovieDetail(movie,it)
+            moveToMoviesDetail(movie, it)
         }
     }
 
-    private fun moveToMovieDetail(movie: Movie, it: View?) {
-        //it itu ditambah !!
-        val detailMovieIntent = Intent(it!!.context,MovieDetailActivity::class.java)
-        detailMovieIntent.putExtra(MovieDetailActivity.EXTRA_MOVIES,movie)
-        it.context.startActivity(detailMovieIntent)
+    private fun moveToMoviesDetail(movie: Movie, it: View) {
+        val detailMoviesIntent = Intent(it.context,MovieDetailActivity::class.java)
+        detailMoviesIntent.putExtra(MovieDetailActivity.EXTRA_MOVIES,movie)
+        it.context.startActivity(detailMoviesIntent)
     }
 }

@@ -5,21 +5,17 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 interface MovieApiService {
-
-    companion object val BASE_URL: String
-        get() = "https://www.themoviedb.org"
-
-    var retrofit : Retrofit?
-
-    fun getInstance(): Retrofit{
-        if(retrofit == null){
-            retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-
+    companion object {
+        private const val BASE_URL = "https://api.themoviedb.org"
+        private var retrofit :Retrofit? = null
+        fun getInstance(): Retrofit {
+            if(retrofit == null){
+                retrofit = Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+            }
+            return retrofit!!
         }
-        return retrofit!!
     }
-
 }

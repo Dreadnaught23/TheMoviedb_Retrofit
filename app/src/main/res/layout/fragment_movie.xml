@@ -41,7 +41,7 @@
                 android:text="Popular Movie"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_movie"
+                android:id="@+id/rv_movies"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"

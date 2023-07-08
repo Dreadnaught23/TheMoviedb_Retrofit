@@ -4,6 +4,6 @@ import com.themoviedb.model.MovieResponse
 import retrofit2.Call
 import retrofit2.http.GET
 interface MovieApiInterface {
-    @GET("3/movie/popular?api_key=59cf6f60fc83eb7171057b2a7fdf0d5c")
+    @GET("/3/movie/popular?api_key=2c7e6ab9a0ea816b8dd03293fbb7d81d")
     fun getMovieList() : Call<MovieResponse>
 }

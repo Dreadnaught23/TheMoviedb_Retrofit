@@ -2,8 +2,6 @@ package com.themoviedb
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Adapter
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.themoviedb.adaptors.ViewPageAdaptor
 import com.themoviedb.databinding.ActivityMainBinding
@@ -24,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             TabLayoutMediator(tabLayout,viewPager){tab,position ->
                 when(position){
                     0 -> tab.text ="Movie"
-                    1 -> tab.text ="Television"
+                    1 -> tab.text ="TV"
                 }
             }.attach()
         }

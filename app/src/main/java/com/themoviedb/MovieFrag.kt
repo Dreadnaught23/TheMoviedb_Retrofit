@@ -1,7 +1,6 @@
 package com.themoviedb
 
 import android.os.Bundle
-import android.os.ProxyFileDescriptorCallback
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,12 +13,11 @@ import com.themoviedb.service.MovieApiInterface
 import com.themoviedb.service.MovieApiService
 import kotlinx.android.synthetic.main.fragment_movie.*
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class MovieFrag : Fragment() {
     private val movies = arrayListOf<Movie>()
-
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -29,10 +27,10 @@ class MovieFrag : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        rv_movie.layoutManager = LinearLayoutManager(this.context)
-        rv_movie.setHasFixedSize(true)
+        rv_movies.layoutManager = LinearLayoutManager(this.context)
+        rv_movies.setHasFixedSize(true)
         getMovieData{movies: List<Movie> ->
-            rv_movie.adapter = MovieAdaptor(movies)
+            rv_movies.adapter = MovieAdaptor(movies)
         }
         showRecycleView()
     }
@@ -49,7 +47,7 @@ class MovieFrag : Fragment() {
     }
 
     private fun showRecycleView(){
-        rv_movie.layoutManager = LinearLayoutManager(this.context)
-        rv_movie.adapter = MovieAdaptor(movies)
+        rv_movies.layoutManager = LinearLayoutManager(this.context)
+        rv_movies.adapter = MovieAdaptor(movies)
     }
 }
